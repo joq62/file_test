@@ -87,7 +87,7 @@ start_link() ->
 init([]) ->
 
     process_flag(trap_exit, true),
-    glurk=date(),
+  
     {ok, #state{},0}.
 
 %%--------------------------------------------------------------------
@@ -149,7 +149,6 @@ handle_cast(_Request, State) ->
 
 handle_info(timeout, State) ->
 
-    glurk=State,
     %% Set up logdir 
     file:make_dir(?MainLogDir),
     [NodeName,_HostName]=string:tokens(atom_to_list(node()),"@"),
